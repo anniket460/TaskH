@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import { useUsers } from "../../hooks/useUsers";
-import "./FeedComp.css";
 import { useQuery } from "@tanstack/react-query";
 
 const FeedComp = () => {
@@ -13,17 +12,22 @@ const FeedComp = () => {
   });
 
   return (
-    <div className="feed-comp">
+    <div className="bg-gray-800 flex flex-col">
       {data.map((user: any) => (
-        <div key={user.id} className="emp-card">
+        <div
+          key={user.id}
+          className="flex flex-col items-center my-4 mx-auto bg-white w-[300px]"
+        >
           <strong>
             {user.firstName} {user.lastName}
           </strong>
+
           <img
-            className="emp-img"
+            className="w-[200px]"
             src={user.image}
             alt={`${user.firstName}'s avatar`}
           />
+
           <p>{user.email}</p>
         </div>
       ))}
